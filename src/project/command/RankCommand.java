@@ -56,7 +56,7 @@ public class RankCommand extends CommandBase {
                         try {
                             int rankId = Integer.parseInt(arguments[2]);
 
-                            if (rankId < 0 || rankId > 7) {
+                            if (rankId < 0 || rankId > 9) {
                                 StringBuilder builder = new StringBuilder("§6§l******** §eRanks §6§l********\n§eRank ID - Rank - Permission Level");
 
                                 for (Rank rank : Rank.values()) {

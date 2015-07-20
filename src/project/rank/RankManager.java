@@ -22,7 +22,7 @@ public class RankManager {
     }
 
     public static void setRank(Player player, int rankId) {
-        if (rankId < 0 || rankId > 7) rankId = 0;
+        if (rankId < 0 || rankId > 9) rankId = 0;
 
         Core.getPlugin().getConfig().set("ranks." + player.getUniqueId().toString(), rankId);
         Core.getPlugin().saveConfig();
