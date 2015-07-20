@@ -1,0 +1,12 @@
+name: Haywire Kit PvP
+version: 1.0.0
+main: project.Core
+
+commands:
+  join:
+  loadout:
+    aliases: [loadouts]
+  match:
+  rank:
+  message:
+    aliases: [msg, w, whisper, tell]

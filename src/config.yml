@@ -1,0 +1,43 @@
+ranks:
+  uuid: 0
+
+items:
+  helmet-of-defaultness:
+    type: 310
+    name: 'Helmet of Defaultness'
+    enchantments:
+      1:
+        enchant: 1
+        level: 2
+
+loadouts:
+  uuid:
+    0:
+      armor:
+        helmet:
+          type: 310
+          name: 'Helmet of Defaultness'
+          enchantments:
+        chestplate:
+          type: 311
+          name: 'Chestplate of Defaultness'
+          enchantments:
+        leggings:
+          type: 312
+          name: 'Leggings of Defaultness'
+          enchantments:
+        boots:
+          type: 313
+          name: 'Boots of Defaultness'
+          enchantments:
+      primaryWeapon:
+        type: 276
+        name: 'Sword of Defaultness'
+        enchantments:
+      secondaryWeapon:
+        type: 261
+        name: 'Bow of Defaultness'
+        enchantments:
+      extras:
+        arrows:
+          type:
