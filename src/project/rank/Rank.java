@@ -16,19 +16,23 @@ public enum Rank {
 
     DEFAULT(0, '8', 0),
 
-    ARTIST(1, 'a', 1),
+    YOUTUBER(1, 'e', 0),
 
-    ARCHITECT(2, 'a', 1),
+    STREAMER(2, 'e', 0),
 
-    DEVELOPER(3, 'a', 1),
+    ARTIST(3, 'a', 1),
 
-    MODERATOR(4, '5', 2),
+    ARCHITECT(4, 'a', 1),
 
-    ADMIN(5, 'c', 3),
+    DEVELOPER(5, 'a', 1),
 
-    HEAD(6, '4', 4),
+    MODERATOR(6, '5', 2),
 
-    LEAD_DEVELOPER(7, '4', 4);
+    ADMIN(7, 'c', 3),
+
+    HEAD(8, '4', 4),
+
+    LEAD_DEVELOPER(9, '4', 4);
 
     int index, permissionLevel;
     char color;

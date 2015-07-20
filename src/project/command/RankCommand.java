@@ -68,7 +68,7 @@ public class RankCommand extends CommandBase {
                                 RankManager.setRank(target, rankId);
 
                                 target.sendMessage("§a§l>> §eYour rank has been updated to " + RankManager.getRankPrefix(target) + "§e.");
-                                sender.sendMessage("§a§l>> §eYou updated §7" + target.getName() + "'s §erank.");
+                                sender.sendMessage("§a§l>> §eYou updated §7" + target.getName() + "'s §erank to " + RankManager.getRankPrefix(target) + "§e.");
                             }
                         } catch (NumberFormatException exception) {
                             sender.sendMessage(usage);
