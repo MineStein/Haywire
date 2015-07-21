@@ -15,6 +15,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * ****************************************************************************************
@@ -29,6 +31,8 @@ import java.net.URL;
  * ****************************************************************************************
  */
 public class ChatListener implements Listener {
+
+    private static Map<String, String> repeatFilter = new HashMap<>();
 
     private boolean isExpletive(String string) {
         String url = "http://www.wdyl.com/profanity?q=" + string;
@@ -70,6 +74,24 @@ public class ChatListener implements Listener {
             player.sendMessage("§4§lX §cWatch your language!");
 
             event.setCancelled(true);
+        }
+
+        if (repeatFilter.containsKey(player.getUniqueId().toString())) {
+            String previousMessage = repeatFilter.get(player.getUniqueId().toString());
+            String revision1, revision2;
+
+            revision1 = event.getMessage().trim().replaceAll("[^a-zA-Z ]", "").toLowerCase();
+            revision2 = revision1.replaceAll(" ", "");
+            
+            if (revision2.equalsIgnoreCase(previousMessage)) {
+                player.sendMessage("§4§lX §cThat message is too similar to your previous message.");
+                
+                event.setCancelled(true);
+            } else {
+                repeatFilter.put(player.getUniqueId().toString(), revision2);
+            }
+        } else {
+            repeatFilter.put(player.getUniqueId().toString(), event.getMessage());
         }
 
         event.setFormat(RankManager.getRankPrefix(player) + " §7" + player.getName() + " §a" + event.getMessage());
