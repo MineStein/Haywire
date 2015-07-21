@@ -60,7 +60,7 @@ public class Core extends JavaPlugin {
 
     public static BukkitScheduler getBukkitScheduler() {
         return bukkitScheduler;
-    }Re
+    }
     public static Random getRandom() {
         return random;
     }
