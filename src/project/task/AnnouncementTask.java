@@ -21,7 +21,7 @@ public class AnnouncementTask implements Runnable {
 
     @Override
     public void run() {
-        String[] announcements = new String[] { "§eDo §7/join §eto join the arena.", "§eDo §7/help §eto request help from staff.", "§eDo §7/loadout §eto select/change your loadouts." };
+        String[] announcements = new String[] { "§d§lDo §5§l/join §d§lto join the arena.", "§d§lDo §5§l/help §d§lto request help from staff.", "§d§lDo §5§l/loadout §d§lto select/change your loadouts." };
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             ActionBarUtility.sendActionBar(player, announcements[Core.getRandom().nextInt(announcements.length)]);
