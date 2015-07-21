@@ -43,6 +43,7 @@ public class Core extends JavaPlugin {
      *  Achievements
      *  Fix stacktraces
      *  /announce command for broadcasting messages via titles for ranks with permission level 3 and above
+     *  Particle trails for players, arrows, and specific ranks
      */
 
     private static Core plugin;
@@ -100,6 +101,7 @@ public class Core extends JavaPlugin {
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("help").setExecutor(new HelpCommand());
+        getCommand("announce").setExecutor(new AnnounceCommand());
     }
 
     @Override
