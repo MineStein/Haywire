@@ -32,8 +32,6 @@ public class Core extends JavaPlugin {
      *  Replace all EssentialsX commands and implement wrappers for all commands
      *  Custom "command not found" message
      *  Loadouts
-     *  /help for contacting staff
-     *  Instant respawns
      *  Multiple ranks
      *  Custom world guard
      *  Optimize swear filter speed

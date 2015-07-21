@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import project.mute.MuteManager;
 import project.rank.RankManager;
 
 import java.io.IOException;
@@ -148,6 +149,14 @@ public class ChatListener implements Listener {
             event.setCancelled(true);
 
             return;
+        }
+
+        if (MuteManager.isMuted(player)) {
+            for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                if (onlinePlayer.getUniqueId().toString().equals(player.getUniqueId().toString())) continue;
+
+                event.getRecipients().remove(onlinePlayer);
+            }
         }
 
         String message = correctGrammar(event.getMessage());

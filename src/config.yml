@@ -1,3 +1,6 @@
+mutes:
+  - uuid
+
 ranks:
   uuid: 0
 
