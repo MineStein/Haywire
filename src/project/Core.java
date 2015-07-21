@@ -26,6 +26,27 @@ import java.util.Random;
  */
 public class Core extends JavaPlugin {
 
+    /** TODO
+     *  Shadow mutes
+     *  Scoreboard
+     *  Replace all EssentialsX commands and implement wrappers for all commands
+     *  Custom "command not found" message
+     *  Loadouts
+     *  Announcements via actionbar
+     *  /help for contacting staff
+     *  Instant respawns
+     *  Multiple ranks
+     *  Custom world guard
+     *  Optimize swear filter speed
+     *  Toggles for blood, chat, private messages, match requests, and default chat color
+     *  Grammar corrector
+     *  Auto-capitalization
+     *  Chat mention sound notification
+     *  Anti-cheat
+     *  Anti-shout so they cannot send messages with a lot of capitalization
+     *  Click to accept/deny matches
+     */
+
     private static Core plugin;
     private static PluginManager pluginManager;
     private static BukkitScheduler bukkitScheduler;
@@ -85,6 +106,7 @@ public class Core extends JavaPlugin {
         getCommand("rank").setExecutor(new RankCommand());
         getCommand("message").setExecutor(new MessageCommand());
         getCommand("clearchat").setExecutor(new ClearChatCommand());
+        getCommand("gamemode").setExecutor(new GamemodeCommand());
     }
 
     @Override

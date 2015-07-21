@@ -12,3 +12,5 @@ commands:
     aliases: [msg, w, whisper, tell]
   clearchat:
     aliases: [cc]
+  gamemode:
+    aliases: [gm]

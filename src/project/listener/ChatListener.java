@@ -3,6 +3,7 @@ package project.listener;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -66,6 +67,31 @@ public class ChatListener implements Listener {
         return bool;
     }
 
+    private boolean isShouting(String string) {
+        int charLength = string.toCharArray().length;
+        int capitalizedCount = 0;
+
+        for (char character : string.toCharArray()) {
+            if (Character.toTitleCase(character) == character) capitalizedCount++;
+        }
+
+        if (charLength == capitalizedCount) return true;
+
+        if (charLength > 6) {
+            if (charLength % 2 == 0) { // is even
+                if (capitalizedCount > charLength / 2) return true;
+            } else { // is odd
+                if (capitalizedCount > (charLength / 2 + 0.5)) return true;
+            }
+        }
+
+        return false;
+    }
+
+    private String correctGrammar(String string) {
+        return string; // TODO Check grammar and capitalization and correct it.
+    }
+
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         final Player player = event.getPlayer();
@@ -94,6 +120,12 @@ public class ChatListener implements Listener {
             repeatFilter.put(player.getUniqueId().toString(), event.getMessage());
         }
 
-        event.setFormat(RankManager.getRankPrefix(player) + " §7" + player.getName() + " §a" + event.getMessage());
+        if (isShouting(event.getMessage())) {
+            player.sendMessage("§4§lX §cThere is no need to shout.");
+
+            event.setCancelled(true);
+        }
+
+        event.setFormat(RankManager.getRankPrefix(player) + " §7" + player.getName() + " §a" + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
     }
 }

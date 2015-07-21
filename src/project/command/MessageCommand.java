@@ -1,5 +1,6 @@
 package project.command;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -41,7 +42,7 @@ public class MessageCommand extends CommandBase {
                             builder.append(arguments[i]).append(" ");
                         }
 
-                        String message = builder.toString().trim();
+                        String message = ChatColor.translateAlternateColorCodes('&', builder.toString().trim());
 
                         sender.sendMessage("§7You §3§l§m---§f§3§l> §7" + target.getName() + " §a" + message);
                         target.sendMessage("§7" + sender.getName() + " §3§l§m---§f§3§l> §7You §a" + message);
