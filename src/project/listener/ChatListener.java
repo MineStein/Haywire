@@ -4,7 +4,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.apache.commons.lang.WordUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -98,6 +100,16 @@ public class ChatListener implements Listener {
         return revision;
     }
 
+    private void notify(String string) {
+        String revision = string.replaceAll("[^a-zA-Z ]", "").toLowerCase().trim();
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (revision.contains(player.getName().replaceAll("[^a-zA-Z]", "").toLowerCase().trim())) {
+                player.playSound(player.getLocation(), Sound.LEVEL_UP, 1F, 1F);
+            }
+        }
+    }
+
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         final Player player = event.getPlayer();
@@ -139,6 +151,8 @@ public class ChatListener implements Listener {
         }
 
         String message = correctGrammar(event.getMessage());
+
+        notify(message);
 
         event.setFormat(RankManager.getRankPrefix(player) + " §7" + player.getName() + " §a" + ChatColor.translateAlternateColorCodes('&', message));
     }

@@ -41,10 +41,8 @@ public class Core extends JavaPlugin {
      *  Toggles for blood, chat, private messages, match requests, and default chat color
      *  Grammar corrector
      *  Auto-capitalization
-     *  Chat mention sound notification
      *  Anti-cheat
-     *  Anti-shout so they cannot send messages with a lot of capitalization
-     *  Click to accept/deny matches
+     *  Achievements
      */
 
     private static Core plugin;
