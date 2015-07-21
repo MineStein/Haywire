@@ -48,7 +48,7 @@ public class AnnounceCommand extends CommandBase {
                 String message = builder.toString().trim();
 
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-                    TitleUtility.sendTitle(onlinePlayer, "§c§lAnnouncement from §7§l" + player.getName(), "§e§l" + message, 20, 100, 20);
+                    TitleUtility.sendTitle(onlinePlayer, "§c§lAnnouncement", "§e§l" + message, 20, 100, 20);
                 }
             }
         } else {
