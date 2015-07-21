@@ -5,7 +5,6 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.scoreboard.ScoreboardManager;
 import project.command.*;
 import project.listener.*;
 import project.task.AnnouncementTask;
@@ -49,7 +48,6 @@ public class Core extends JavaPlugin {
     private static Core plugin;
     private static PluginManager pluginManager;
     private static BukkitScheduler bukkitScheduler;
-    private static ScoreboardManager scoreboardManager;
     private static Random random;
 
     public static Core getPlugin() {
@@ -62,12 +60,7 @@ public class Core extends JavaPlugin {
 
     public static BukkitScheduler getBukkitScheduler() {
         return bukkitScheduler;
-    }
-
-    public static ScoreboardManager getScoreboardManager() {
-        return scoreboardManager;
-    }
-
+    }Re
     public static Random getRandom() {
         return random;
     }
@@ -77,7 +70,6 @@ public class Core extends JavaPlugin {
         plugin = this;
         pluginManager = Bukkit.getServer().getPluginManager();
         bukkitScheduler = Bukkit.getServer().getScheduler();
-        scoreboardManager = Bukkit.getServer().getScoreboardManager();
         random = new Random();
 
         getConfig().options().copyDefaults(true);
