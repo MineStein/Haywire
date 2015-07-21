@@ -1,7 +1,11 @@
 package project.command;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import project.rank.RankManager;
+import project.title.TitleUtility;
 
 /**
  * ****************************************************************************************
@@ -19,6 +23,36 @@ public class AnnounceCommand extends CommandBase {
 
     @Override
     public void execute(CommandSender sender, Command command, String[] arguments) {
+        String usage = "§c§l>> §eUsage: §7/announce <message...>";
 
+        if (sender instanceof Player) {
+            if (RankManager.getPermission(((Player) sender)) < 2 && !sender.isOp()) {
+                sender.sendMessage("§c§l>> §eYou must have at least a permission level of §72§e!");
+
+                return;
+            }
+        }
+
+        if (sender instanceof Player) {
+            final Player player = (Player) sender;
+
+            if (arguments.length == 0) {
+                sender.sendMessage(usage);
+            } else {
+                StringBuilder builder = new StringBuilder();
+
+                for (int i = 0; i < arguments.length; i++) {
+                    builder.append(arguments[i]).append(" ");
+                }
+
+                String message = builder.toString().trim();
+
+                for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                    TitleUtility.sendTitle(onlinePlayer, "§c§lAnnouncement from §7§l" + player.getName(), "§e§l" + message, 20, 100, 20);
+                }
+            }
+        } else {
+            sender.sendMessage("§4§lX §cOnly players can execute this command!");
+        }
     }
 }
