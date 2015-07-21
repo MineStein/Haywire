@@ -32,6 +32,13 @@ public class JoinListener implements Listener {
     public void onJoin(final PlayerJoinEvent event) {
         final Player player = event.getPlayer();
 
+        player.setBedSpawnLocation(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5), true);
+        player.teleport(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5));
+
+        player.setMaxHealth(40.0);
+        player.setHealth(40.0);
+        player.setFoodLevel(20);
+
         player.setPlayerListName(" " + RankManager.getRankPrefix(player) + " §7" + player.getName());
 
         if (Core.getPlugin().getConfig().getConfigurationSection("ranks").get(player.getUniqueId().toString()) == null) {
@@ -45,13 +52,6 @@ public class JoinListener implements Listener {
         }
 
         event.setJoinMessage("§a§l>> " + RankManager.getRankPrefix(player) + " §7" + player.getName() + " §ehas joined.");
-
-        player.setMaxHealth(40.0);
-        player.setHealth(40.0);
-        player.setFoodLevel(20);
-
-        player.setBedSpawnLocation(new Location(Bukkit.getWorld("arena"), 258.5, 151, 362.5), true);
-        player.teleport(new Location(Bukkit.getWorld("arena"), 258.5, 151, 362.5));
 
         LoadoutManager.giveLoadout(player);
 

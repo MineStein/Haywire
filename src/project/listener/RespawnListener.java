@@ -37,8 +37,8 @@ public class RespawnListener implements Listener {
         player.setHealth(40.0);
         player.setFoodLevel(20);
 
-        player.setBedSpawnLocation(new Location(Bukkit.getWorld("arena"), 258.5, 151, 362.5), true);
-        player.teleport(new Location(Bukkit.getWorld("arena"), 258.5, 151, 362.5));
+        player.setBedSpawnLocation(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5), true);
+        player.teleport(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5));
 
         PacketPlayOutWorldParticles packet = new PacketPlayOutWorldParticles(
                 EnumParticle.LAVA,	// particle type.
