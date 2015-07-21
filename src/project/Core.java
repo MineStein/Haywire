@@ -27,7 +27,6 @@ import java.util.Random;
 public class Core extends JavaPlugin {
 
     /** TODO
-     *  Shadow mutes
      *  Scoreboard
      *  Replace all EssentialsX commands and implement wrappers for all commands
      *  Custom "command not found" message
@@ -40,7 +39,6 @@ public class Core extends JavaPlugin {
      *  Anti-cheat
      *  Achievements
      *  Fix stacktraces
-     *  /announce command for broadcasting messages via titles for ranks with permission level 3 and above
      *  Particle trails for players, arrows, and specific ranks
      */
 
