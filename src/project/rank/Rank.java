@@ -16,9 +16,9 @@ public enum Rank {
 
     DEFAULT(0, '8', 0),
 
-    YOUTUBER(1, 'e', 0),
+    ASSOCIATE(1, '8', 0),
 
-    STREAMER(2, 'e', 0),
+    VIP(1, 'e', 0),
 
     ARTIST(3, 'a', 1),
 
