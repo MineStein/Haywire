@@ -10,7 +10,3 @@ commands:
   rank:
   message:
     aliases: [msg, w, whisper, tell]
-  youtube:
-    aliases: [yt]
-  stream:
-    aliases: [livestream]

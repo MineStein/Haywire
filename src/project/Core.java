@@ -84,8 +84,6 @@ public class Core extends JavaPlugin {
         getCommand("match").setExecutor(new MatchCommand());
         getCommand("rank").setExecutor(new RankCommand());
         getCommand("message").setExecutor(new MessageCommand());
-        getCommand("youtube").setExecutor(new YouTubeCommand());
-        getCommand("stream").setExecutor(new StreamCommand());
     }
 
     @Override

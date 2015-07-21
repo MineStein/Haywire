@@ -66,6 +66,12 @@ public class ChatListener implements Listener {
     public void onChat(AsyncPlayerChatEvent event) {
         final Player player = event.getPlayer();
 
+        if (containsExpletive(event.getMessage()) || isExpletive(event.getMessage())) {
+            player.sendMessage("§4§lX §cWatch your language!");
+
+            event.setCancelled(true);
+        }
+
         event.setFormat(RankManager.getRankPrefix(player) + " §7" + player.getName() + " §a" + event.getMessage());
     }
 }

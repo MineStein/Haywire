@@ -27,7 +27,6 @@ public class LoadoutManager {
         player.getInventory().setLeggings(new ItemBuilder().type(Material.DIAMOND_LEGGINGS).build());
         player.getInventory().setBoots(new ItemBuilder().type(Material.DIAMOND_BOOTS).build());
         player.getInventory().addItem(new ItemBuilder().type(Material.DIAMOND_SWORD).build());
-        player.getInventory().addItem(new ItemBuilder().type(Material.COMPASS).name("§3§lPlayer Tracker").build());
     }
 
     public static Loadout getLoadout(Player player) {
