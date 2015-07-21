@@ -8,6 +8,7 @@ import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.scoreboard.ScoreboardManager;
 import project.command.*;
 import project.listener.*;
+import project.task.AnnouncementTask;
 import project.task.WorldManagementTask;
 
 import java.util.Random;
@@ -32,7 +33,6 @@ public class Core extends JavaPlugin {
      *  Replace all EssentialsX commands and implement wrappers for all commands
      *  Custom "command not found" message
      *  Loadouts
-     *  Announcements via actionbar
      *  /help for contacting staff
      *  Instant respawns
      *  Multiple ranks
@@ -40,9 +40,9 @@ public class Core extends JavaPlugin {
      *  Optimize swear filter speed
      *  Toggles for blood, chat, private messages, match requests, and default chat color
      *  Grammar corrector
-     *  Auto-capitalization
      *  Anti-cheat
      *  Achievements
+     *  Fix stacktraces
      */
 
     private static Core plugin;
@@ -97,6 +97,7 @@ public class Core extends JavaPlugin {
         getPluginManager().registerEvents(new ChatListener(), this);
 
         getBukkitScheduler().scheduleSyncRepeatingTask(this, new WorldManagementTask(), 0L, 10L);
+        getBukkitScheduler().scheduleSyncRepeatingTask(this, new AnnouncementTask(), 0L, 100L);
 
         getCommand("join").setExecutor(new JoinCommand());
         getCommand("loadout").setExecutor(new LoadoutCommand());
