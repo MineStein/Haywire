@@ -106,6 +106,7 @@ public class Core extends JavaPlugin {
         getCommand("message").setExecutor(new MessageCommand());
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
+        getCommand("help").setExecutor(new HelpCommand());
     }
 
     @Override
