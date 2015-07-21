@@ -46,7 +46,7 @@ public class JoinCommand extends CommandBase {
                 );
 
                 player.sendMessage("§a§l>> §eTeleporting...");
-                player.teleport(new Location(Bukkit.getWorld("arena"), 322.5, 130, 362.5));
+                player.teleport(new Location(Bukkit.getWorld("pvp_arena"), 322.5, 130, 362.5));
 
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     ((CraftPlayer) onlinePlayer).getHandle().playerConnection.sendPacket(packet);
