@@ -29,14 +29,22 @@ public class MuteManager {
 
     public static void mute(Player player) {
         if (!isMuted(player)) {
-            Core.getPlugin().getConfig().getStringList("mutes").add(player.getUniqueId().toString());
+            List<String> duplicate = getMuted();
+
+            duplicate.add(player.getUniqueId().toString());
+
+            Core.getPlugin().getConfig().set("mutes", duplicate);
             Core.getPlugin().saveConfig();
         }
     }
 
     public static void unmute(Player player) {
         if (isMuted(player)) {
-            Core.getPlugin().getConfig().getStringList("mutes").remove(player.getUniqueId().toString());
+            List<String> duplicate = getMuted();
+
+            duplicate.remove(player.getUniqueId().toString());
+
+            Core.getPlugin().getConfig().set("mutes", duplicate);
             Core.getPlugin().saveConfig();
         }
     }
