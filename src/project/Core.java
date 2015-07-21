@@ -43,6 +43,7 @@ public class Core extends JavaPlugin {
      *  Anti-cheat
      *  Achievements
      *  Fix stacktraces
+     *  /announce command for broadcasting messages via titles for ranks with permission level 3 and above
      */
 
     private static Core plugin;
