@@ -3,6 +3,7 @@ package project.listener;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.apache.commons.lang.WordUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -89,7 +90,12 @@ public class ChatListener implements Listener {
     }
 
     private String correctGrammar(String string) {
-        return string; // TODO Check grammar and capitalization and correct it.
+        String revision = WordUtils.capitalize(string);
+        char punctuation = string.charAt(string.toCharArray().length - 1);
+
+        if (punctuation != '.' && punctuation != '!' && punctuation != '?' && punctuation != ';') revision += ".";
+
+        return revision;
     }
 
     @EventHandler
@@ -126,6 +132,8 @@ public class ChatListener implements Listener {
             event.setCancelled(true);
         }
 
-        event.setFormat(RankManager.getRankPrefix(player) + " §7" + player.getName() + " §a" + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+        String message = correctGrammar(event.getMessage());
+
+        event.setFormat(RankManager.getRankPrefix(player) + " §7" + player.getName() + " §a" + ChatColor.translateAlternateColorCodes('&', message));
     }
 }
