@@ -100,6 +100,7 @@ public class Core extends JavaPlugin {
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("help").setExecutor(new HelpCommand());
         getCommand("announce").setExecutor(new AnnounceCommand());
+        getCommand("mute").setExecutor(new MuteCommand());
     }
 
     @Override

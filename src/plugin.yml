@@ -17,3 +17,5 @@ commands:
   help:
   announce:
     aliases: [broadcast, announcement]
+  mute:
+    aliases: [silence]
