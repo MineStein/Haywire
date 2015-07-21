@@ -106,6 +106,8 @@ public class ChatListener implements Listener {
             player.sendMessage("§4§lX §cWatch your language!");
 
             event.setCancelled(true);
+
+            return;
         }
 
         if (repeatFilter.containsKey(player.getUniqueId().toString())) {
@@ -119,6 +121,8 @@ public class ChatListener implements Listener {
                 player.sendMessage("§4§lX §cThat message is too similar to your previous message.");
                 
                 event.setCancelled(true);
+
+                return;
             } else {
                 repeatFilter.put(player.getUniqueId().toString(), revision2);
             }
@@ -130,6 +134,8 @@ public class ChatListener implements Listener {
             player.sendMessage("§4§lX §cThere is no need to shout.");
 
             event.setCancelled(true);
+
+            return;
         }
 
         String message = correctGrammar(event.getMessage());
