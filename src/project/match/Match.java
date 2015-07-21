@@ -28,8 +28,8 @@ public class Match {
         this.player1 = player1;
         this.player2 = player2;
 
-        player1.teleport(new Location(Bukkit.getWorld("arena"), 208, 145, 356.5));
-        player2.teleport(new Location(Bukkit.getWorld("arena"), 208, 145, 371.5));
+        player1.teleport(new Location(Bukkit.getWorld("pvp_arena"), 208, 145, 356.5));
+        player2.teleport(new Location(Bukkit.getWorld("pvp_arena"), 208, 145, 371.5));
 
         player1.setHealth(player1.getMaxHealth());
         player2.setHealth(player2.getMaxHealth());
