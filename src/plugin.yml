@@ -10,3 +10,5 @@ commands:
   rank:
   message:
     aliases: [msg, w, whisper, tell]
+  clearchat:
+    aliases: [cc]

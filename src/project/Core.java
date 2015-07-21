@@ -84,6 +84,7 @@ public class Core extends JavaPlugin {
         getCommand("match").setExecutor(new MatchCommand());
         getCommand("rank").setExecutor(new RankCommand());
         getCommand("message").setExecutor(new MessageCommand());
+        getCommand("clearchat").setExecutor(new ClearChatCommand());
     }
 
     @Override
