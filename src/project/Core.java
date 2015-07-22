@@ -1,11 +1,14 @@
 package project;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.entity.EntityType;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 import project.command.*;
+import project.hologram.Hologram;
 import project.listener.*;
 import project.task.AnnouncementTask;
 import project.task.WorldManagementTask;
@@ -40,6 +43,7 @@ public class Core extends JavaPlugin {
      *  Fix stacktraces
      *  Particle trails for players, arrows, and specific ranks
      *  Instant respawn
+     *  Powerups for health and damage
      */
 
     private static Core plugin;
@@ -101,10 +105,14 @@ public class Core extends JavaPlugin {
         getCommand("help").setExecutor(new HelpCommand());
         getCommand("announce").setExecutor(new AnnounceCommand());
         getCommand("mute").setExecutor(new MuteCommand());
+
+        Hologram hologram = new Hologram(new Location(Bukkit.getWorld("pvp_arena"), 260.5, 151.5, 362.5), "§eWelcome to §3§lHaywireMC PvP", "§chttp://our-website.net", "§eDeveloped by §7@minestien");
     }
 
     @Override
     public void onDisable() {
         HandlerList.unregisterAll(this);
+
+        Bukkit.getWorld("pvp_arena").getEntities().stream().filter(entity -> entity.getType().equals(EntityType.ARMOR_STAND)).forEach(org.bukkit.entity.Entity::remove);
     }
 }

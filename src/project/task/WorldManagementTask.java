@@ -21,7 +21,7 @@ public class WorldManagementTask implements Runnable {
 
     @Override
     public void run() {
-        Bukkit.getWorld("pvp_arena").getEntities().stream().filter(entity -> entity.getType() != EntityType.PLAYER && entity.getType() != EntityType.ARROW).forEach(org.bukkit.entity.Entity::remove);
+        Bukkit.getWorld("pvp_arena").getEntities().stream().filter(entity -> entity.getType() != EntityType.PLAYER && entity.getType() != EntityType.ARROW && entity.getType() != EntityType.ARMOR_STAND).forEach(org.bukkit.entity.Entity::remove);
         Bukkit.getWorld("pvp_arena").setStorm(false);
 
         for (Player player : Bukkit.getOnlinePlayers()) {
