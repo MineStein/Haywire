@@ -29,7 +29,6 @@ public class Core extends JavaPlugin {
     /** TODO
      *  Scoreboard
      *  Replace all EssentialsX commands and implement wrappers for all commands
-     *  Custom "command not found" message
      *  Loadouts
      *  Multiple ranks
      *  Custom world guard
@@ -40,6 +39,7 @@ public class Core extends JavaPlugin {
      *  Achievements
      *  Fix stacktraces
      *  Particle trails for players, arrows, and specific ranks
+     *  Instant respawn
      */
 
     private static Core plugin;
@@ -58,6 +58,7 @@ public class Core extends JavaPlugin {
     public static BukkitScheduler getBukkitScheduler() {
         return bukkitScheduler;
     }
+
     public static Random getRandom() {
         return random;
     }
@@ -85,6 +86,7 @@ public class Core extends JavaPlugin {
         getPluginManager().registerEvents(new SignListener(), this);
         getPluginManager().registerEvents(new DeathListener(), this);
         getPluginManager().registerEvents(new ChatListener(), this);
+        getPluginManager().registerEvents(new CommandPreProcessListener(), this);
 
         getBukkitScheduler().scheduleSyncRepeatingTask(this, new WorldManagementTask(), 0L, 10L);
         getBukkitScheduler().scheduleSyncRepeatingTask(this, new AnnouncementTask(), 0L, 100L);
