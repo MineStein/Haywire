@@ -38,7 +38,7 @@ public class JoinListener implements Listener {
         player.teleport(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5));
 
         player.setMaxHealth(40.0);
-        player.setHealth(40.0);
+        player.setHealth(player.getMaxHealth());
         player.setFoodLevel(20);
 
         if (Core.getPlugin().getConfig().getConfigurationSection("ranks").get(player.getUniqueId().toString()) == null) {
