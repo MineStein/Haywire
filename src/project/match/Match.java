@@ -63,8 +63,8 @@ public class Match {
             }
         }
 
-        player1.teleport(new Location(Bukkit.getWorld("arena"), 258.5, 151, 362.5));
-        player2.teleport(new Location(Bukkit.getWorld("arena"), 258.5, 151, 362.5));
+        player1.teleport(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5));
+        player2.teleport(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5));
 
         MatchManager.setCurrentMatch(null);
     }

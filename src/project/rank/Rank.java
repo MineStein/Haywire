@@ -18,7 +18,7 @@ public enum Rank {
 
     ASSOCIATE(1, '8', 0),
 
-    VIP(1, 'e', 0),
+    VIP(2, 'e', 0),
 
     ARTIST(3, 'a', 1),
 
