@@ -3,7 +3,6 @@ package project.listener;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -93,7 +92,8 @@ public class ChatListener implements Listener {
     }
 
     private String correctGrammar(String string) {
-        String revision = WordUtils.capitalize(string);
+        String revision = Character.toTitleCase(string.toCharArray()[0]) + (string.toCharArray().length > 0 ? string.substring(1) : "");
+
         char punctuation = string.charAt(string.toCharArray().length - 1);
 
         if (punctuation != '.' && punctuation != '!' && punctuation != '?' && punctuation != ';') revision += ".";
