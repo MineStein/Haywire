@@ -105,6 +105,7 @@ public class Core extends JavaPlugin {
         getCommand("help").setExecutor(new HelpCommand());
         getCommand("announce").setExecutor(new AnnounceCommand());
         getCommand("mute").setExecutor(new MuteCommand());
+        getCommand("pixel").setExecutor(new PixelCommand());
 
         Hologram hologram = new Hologram(new Location(Bukkit.getWorld("pvp_arena"), 260.5, 151.5, 362.5), "§eWelcome to §3§lHaywireMC PvP", "§chttp://our-website.net", "§eDeveloped by §7@minestien");
     }
