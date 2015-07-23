@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import project.Core;
 import project.loadout.LoadoutManager;
 import project.rank.RankManager;
+import project.statistic.StatisticManager;
 import project.title.TitleUtility;
 
 /**
@@ -31,6 +32,8 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onJoin(final PlayerJoinEvent event) {
         final Player player = event.getPlayer();
+
+        StatisticManager.createStats(player);
 
         player.setPlayerListName(" " + RankManager.getRankPrefix(player) + " §7" + player.getName());
 

@@ -1,3 +1,9 @@
+stats:
+  uuid:
+    kills: 0
+    deaths: 0
+    pixels: 0
+
 mutes:
   - uuid
 
