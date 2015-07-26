@@ -31,7 +31,6 @@ import java.util.Random;
 public class Core extends JavaPlugin {
 
     /** TODO
-     *  Scoreboard
      *  Replace all EssentialsX commands and implement wrappers for all commands
      *  Loadouts
      *  Multiple ranks
@@ -45,6 +44,8 @@ public class Core extends JavaPlugin {
      *  Particle trails for players, arrows, and specific ranks
      *  Instant respawn
      *  Powerups for health and damage
+     *  Killstreaks
+     *  Combat tags
      */
 
     private static Core plugin;

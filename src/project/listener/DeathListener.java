@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import project.match.MatchManager;
+import project.statistic.StatisticManager;
 
 /**
  * ****************************************************************************************
@@ -23,6 +24,19 @@ public class DeathListener implements Listener {
     @EventHandler
     public void onDeath(final PlayerDeathEvent event) {
         final Player player = event.getEntity();
+
+        event.setDeathMessage(null);
+
+        StatisticManager.incrementDeaths(player);
+
+        player.sendMessage("§c§l>> §eYou died! §7+1 §edeath!");
+
+        if (player.getKiller() != null) {
+            StatisticManager.incrementKills(player.getKiller());
+            StatisticManager.addPixels(player.getKiller(), 10);
+
+            player.getKiller().sendMessage("§a§l>> §eYou killed §7" + player.getName() + "§e! §7+1 §ekill, §7+10 §epixels!");
+        }
 
         if (MatchManager.getCurrentMatch().getPlayer1().getUniqueId().toString().equals(player.getUniqueId().toString())) {
             MatchManager.getCurrentMatch().endMatch(MatchManager.getCurrentMatch().getPlayer1());
