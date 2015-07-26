@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Haywire:jar2">
+    <output-path>$USER_HOME$/Desktop/Developer/Java/Minecraft/Servers/HaywireMC/KitPvP V2/plugins</output-path>
+    <root id="archive" name="Haywire.jar">
+      <element id="module-output" name="Haywire" />
+    </root>
+  </artifact>
+</component>

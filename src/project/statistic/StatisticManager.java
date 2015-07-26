@@ -19,17 +19,13 @@ import project.Core;
 public class StatisticManager {
 
     private static boolean hasStats(Player player) {
-        final ConfigurationSection section = Core.getPlugin().getConfig().getConfigurationSection("stats." + player.getUniqueId().toString());
-
-        if (section == null || (section.get("pixels") == null && section.get("kills") == null && section.get("deaths") == null)) return false;
-
-        return true;
+        return Core.getPlugin().getConfig().getConfigurationSection("stats." + player.getUniqueId().toString()) != null;
     }
 
     public static void createStats(Player player) {
-        if (!hasStats(player)) return;
+        if (hasStats(player)) return;
 
-        final ConfigurationSection section = Core.getPlugin().getConfig().createSection("stats." + player.getUniqueId().toString());
+        final ConfigurationSection section = Core.getPlugin().getConfig().getConfigurationSection("stats").createSection(player.getUniqueId().toString());
 
         section.set("kills", 0);
         section.set("deaths", 0);
