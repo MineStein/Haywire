@@ -34,6 +34,7 @@ public enum Rank {
 
     LEAD_DEVELOPER(9, '4', 4);
 
+    public static int RANKS_BOUND = 9;
     int index, permissionLevel;
     char color;
 

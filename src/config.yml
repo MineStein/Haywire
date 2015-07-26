@@ -8,7 +8,8 @@ mutes:
   - uuid
 
 ranks:
-  uuid: 0
+  uuid:
+    - 0
 
 items:
   helmet-of-defaultness:

@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import project.Core;
 import project.loadout.LoadoutManager;
 import project.rank.RankManager;
 import project.scoreboard.ScoreboardManager;
@@ -36,7 +35,9 @@ public class JoinListener implements Listener {
 
         StatisticManager.createStats(player);
 
-        player.setPlayerListName(" " + RankManager.getRankPrefix(player) + " §7" + player.getName());
+        RankManager.createRankAccount(player);
+
+        player.setPlayerListName(" " + RankManager.getRankPrefix(RankManager.getRanks(player).get(0)) + " §7" + player.getName());
 
         player.setBedSpawnLocation(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5), true);
         player.teleport(new Location(Bukkit.getWorld("pvp_arena"), 258.5, 151, 362.5));
@@ -44,12 +45,6 @@ public class JoinListener implements Listener {
         player.setMaxHealth(40.0);
         player.setHealth(player.getMaxHealth());
         player.setFoodLevel(20);
-
-        if (Core.getPlugin().getConfig().getConfigurationSection("ranks").get(player.getUniqueId().toString()) == null) {
-            Core.getPlugin().getConfig().getConfigurationSection("ranks").set(player.getUniqueId().toString(), 0);
-            Core.getPlugin().saveConfig();
-            Core.getPlugin().reloadConfig();
-        }
 
         ScoreboardManager.refreshScoreboard(player);
 

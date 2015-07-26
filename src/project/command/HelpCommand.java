@@ -50,7 +50,7 @@ public class HelpCommand extends CommandBase {
 
                     String message = builder.toString().trim();
 
-                    Bukkit.getOnlinePlayers().stream().filter(onlinePlayer -> RankManager.getRank(onlinePlayer).getPermissionLevel() > 1 || onlinePlayer.isOp()).forEach(onlinePlayer -> {
+                    Bukkit.getOnlinePlayers().stream().filter(onlinePlayer -> RankManager.getPermission(onlinePlayer) > 1 || onlinePlayer.isOp()).forEach(onlinePlayer -> {
                         TitleUtility.sendTitle(onlinePlayer, "§c§lHelp from §7§l" + player.getName(), "§e" + message, 20, 100, 20);
                     });
                 } else {

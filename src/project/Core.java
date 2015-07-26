@@ -33,8 +33,7 @@ public class Core extends JavaPlugin {
     /** TODO
      *  Replace all EssentialsX commands and implement wrappers for all commands
      *  Loadouts
-     *  Multiple ranks
-     *  Custom world guard
+     *  Custom WorldGuard
      *  Optimize swear filter speed
      *  Toggles for blood, chat, private messages, match requests, and default chat color
      *  Grammar corrector
@@ -46,6 +45,11 @@ public class Core extends JavaPlugin {
      *  Powerups for health and damage
      *  Killstreaks
      *  Combat tags
+     *  Multiple matches
+     *  Match map selection
+     *  2v2 matches
+     *  Match kits
+     *  Custom WorldEdit
      */
 
     private static Core plugin;
