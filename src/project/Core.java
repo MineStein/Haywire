@@ -112,6 +112,7 @@ public class Core extends JavaPlugin {
         getCommand("announce").setExecutor(new AnnounceCommand());
         getCommand("mute").setExecutor(new MuteCommand());
         getCommand("pixel").setExecutor(new PixelCommand());
+        getCommand("toggle").setExecutor(new PixelCommand());
 
         Bukkit.getOnlinePlayers().forEach(ScoreboardManager::refreshScoreboard);
 

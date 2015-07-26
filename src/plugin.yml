@@ -21,4 +21,4 @@ commands:
     aliases: [silence]
   pixel:
     aliases: [pixels]
-  rank2:
+  toggle:
