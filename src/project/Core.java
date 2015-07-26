@@ -10,6 +10,7 @@ import org.bukkit.scheduler.BukkitScheduler;
 import project.command.*;
 import project.hologram.Hologram;
 import project.listener.*;
+import project.scoreboard.ScoreboardManager;
 import project.task.AnnouncementTask;
 import project.task.WorldManagementTask;
 
@@ -106,6 +107,8 @@ public class Core extends JavaPlugin {
         getCommand("announce").setExecutor(new AnnounceCommand());
         getCommand("mute").setExecutor(new MuteCommand());
         getCommand("pixel").setExecutor(new PixelCommand());
+
+        Bukkit.getOnlinePlayers().forEach(ScoreboardManager::refreshScoreboard);
 
         Hologram hologram = new Hologram(new Location(Bukkit.getWorld("pvp_arena"), 260.5, 151.5, 362.5), "§eWelcome to §3§lHaywireMC PvP", "§chttp://our-website.net", "§eDeveloped by §7@minestien");
     }

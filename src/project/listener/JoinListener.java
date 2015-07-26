@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import project.Core;
 import project.loadout.LoadoutManager;
 import project.rank.RankManager;
+import project.scoreboard.ScoreboardManager;
 import project.statistic.StatisticManager;
 import project.title.TitleUtility;
 
@@ -49,6 +50,8 @@ public class JoinListener implements Listener {
             Core.getPlugin().saveConfig();
             Core.getPlugin().reloadConfig();
         }
+
+        ScoreboardManager.refreshScoreboard(player);
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             TitleUtility.sendTabHF(onlinePlayer, "§3§lHaywire PvP", "§eThere are §7" + Bukkit.getOnlinePlayers().size() + "§e/§7" + Bukkit.getServer().getMaxPlayers() + " §eplayers online.");

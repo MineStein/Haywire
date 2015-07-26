@@ -3,6 +3,7 @@ package project.statistic;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import project.Core;
+import project.scoreboard.ScoreboardManager;
 
 /**
  * ****************************************************************************************
@@ -41,6 +42,8 @@ public class StatisticManager {
     public static void setPixels(Player player, int pixels) {
         Core.getPlugin().getConfig().getConfigurationSection("stats." + player.getUniqueId().toString()).set("pixels", pixels);
         Core.getPlugin().saveConfig();
+
+        ScoreboardManager.refreshScoreboard(player);
     }
 
     public static void addPixels(Player player, int pixels) {
@@ -74,6 +77,8 @@ public class StatisticManager {
     public static void incrementKills(Player player) {
         Core.getPlugin().getConfig().getConfigurationSection("stats." + player.getUniqueId().toString()).set("kills", getKills(player) + 1);
         Core.getPlugin().saveConfig();
+
+        ScoreboardManager.refreshScoreboard(player);
     }
 
     public static int getKills(Player player) {
@@ -83,6 +88,8 @@ public class StatisticManager {
     public static void incrementDeaths(Player player) {
         Core.getPlugin().getConfig().getConfigurationSection("stats." + player.getUniqueId().toString()).set("deaths", getDeaths(player) + 1);
         Core.getPlugin().saveConfig();
+
+        ScoreboardManager.refreshScoreboard(player);
     }
 
     public static int getDeaths(Player player) {
