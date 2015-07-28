@@ -52,6 +52,9 @@ public class Core extends JavaPlugin {
      *  Custom WorldEdit
      *  Polls
      *  Make it so that players cannot equip armor on armor stands
+     *  Configurable messages
+     *  Configurable MOTDs with paginated listings
+     *  Pagination API
      */
 
     private static Core plugin;

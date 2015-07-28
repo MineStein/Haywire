@@ -43,7 +43,7 @@ public class ToggleManager {
         final ConfigurationSection section = Core.getPlugin().getConfig().createSection("toggles." + player.getUniqueId().toString());
 
         for (Toggle toggle : Toggle.values()) {
-            section.set(toggle.getName(), false);
+            section.set(toggle.getName(), true);
         }
 
         Core.getPlugin().saveConfig();

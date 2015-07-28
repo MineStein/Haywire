@@ -53,7 +53,26 @@ public class PingListener implements Listener {
                 "@minestien",
                 "@AntiVenom237",
                 "@joshua2345432",
-                "I'm all about that bass!"
+                "I'm all about that bass!",
+                "RIP Chloe",
+                "Focus on the picture",
+                "Yay or nay?",
+                "Life is Strange",
+                "#LifeIsStrange",
+                "This is a message",
+                "for (int i=0;i<10;i++)",
+                "System.exit();",
+                "Player#sendMessage",
+                "Laura Croft",
+                "Lara Croft",
+                "Roth! NOOOOOOOOOOO!",
+                "Zumba",
+                "Brush and floss",
+                "Look out!",
+                "#d3d3d3",
+                "222 Shades of Grey",
+                "§4§lR§6§la§e§li§a§ln§9§lb§1§lo§5§lw",
+                "business [at] nothappening [dot] com"
         };
 
         event.setMotd("§3§lHaywire §7// §e§o" + motds[Core.getRandom().nextInt(motds.length)]);
