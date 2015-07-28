@@ -50,6 +50,7 @@ public class Core extends JavaPlugin {
      *  2v2 matches
      *  Match kits
      *  Custom WorldEdit
+     *  Polls
      */
 
     private static Core plugin;
@@ -97,6 +98,7 @@ public class Core extends JavaPlugin {
         getPluginManager().registerEvents(new DeathListener(), this);
         getPluginManager().registerEvents(new ChatListener(), this);
         getPluginManager().registerEvents(new CommandPreProcessListener(), this);
+        getPluginManager().registerEvents(new InventoryListener(), this);
 
         getBukkitScheduler().scheduleSyncRepeatingTask(this, new WorldManagementTask(), 0L, 10L);
         getBukkitScheduler().scheduleSyncRepeatingTask(this, new AnnouncementTask(), 0L, 100L);
@@ -112,7 +114,7 @@ public class Core extends JavaPlugin {
         getCommand("announce").setExecutor(new AnnounceCommand());
         getCommand("mute").setExecutor(new MuteCommand());
         getCommand("pixel").setExecutor(new PixelCommand());
-        getCommand("toggle").setExecutor(new PixelCommand());
+        getCommand("toggle").setExecutor(new ToggleCommand());
 
         Bukkit.getOnlinePlayers().forEach(ScoreboardManager::refreshScoreboard);
 

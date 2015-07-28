@@ -22,3 +22,4 @@ commands:
   pixel:
     aliases: [pixels]
   toggle:
+    aliases: [toggles]

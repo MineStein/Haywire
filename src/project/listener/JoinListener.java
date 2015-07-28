@@ -14,6 +14,7 @@ import project.rank.RankManager;
 import project.scoreboard.ScoreboardManager;
 import project.statistic.StatisticManager;
 import project.title.TitleUtility;
+import project.toggle.ToggleManager;
 
 /**
  * ****************************************************************************************
@@ -34,8 +35,8 @@ public class JoinListener implements Listener {
         final Player player = event.getPlayer();
 
         StatisticManager.createStats(player);
-
         RankManager.createRankAccount(player);
+        ToggleManager.createTogglesAccount(player);
 
         player.setPlayerListName(" " + RankManager.getRankPrefix(RankManager.getRanks(player).get(0)) + " §7" + player.getName());
 

@@ -1,10 +1,7 @@
-package project.command;
+package project.listener;
 
 import org.bukkit.Sound;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import project.inventory.ToggleInventory;
 
 /**
  * ****************************************************************************************
@@ -18,17 +15,9 @@ import project.inventory.ToggleInventory;
  * Thanks, and have a nice day.
  * ****************************************************************************************
  */
-public class ToggleCommand extends CommandBase {
+public class SoundUtility {
 
-    @Override
-    public void execute(CommandSender sender, Command command, String[] arguments) {
-        if (sender instanceof Player) {
-            final Player player = (Player) sender;
-
-            player.playSound(player.getLocation(), Sound.CLICK, 1F, 1F);
-            player.openInventory(ToggleInventory.getInventory(player));
-        } else {
-            sender.sendMessage("§4§lX §cOnly players can execute that command!");
-        }
+    public static void playSound(Player player, Sound sound) {
+        player.playSound(player.getLocation(), sound, 1F, 1F);
     }
 }
