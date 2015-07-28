@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import project.toggle.ToggleManager;
 
 /**
  * ****************************************************************************************
@@ -24,6 +25,12 @@ public class MessageCommand extends CommandBase {
     public void execute(CommandSender sender, Command command, String[] arguments) {
         String usage = "§c§l>> §eUsage: §7/message <player> <message...>";
 
+        if (sender instanceof Player && !ToggleManager.getToggle(((Player) sender), ToggleManager.Toggle.PRIVATE_MESSAGES)) {
+            sender.sendMessage("§4§lX §cYou have private messages off. Do §4/toggle §cto change this setting.");
+
+            return;
+        }
+
         if (arguments.length == 0) {
             sender.sendMessage(usage);
         } else {
@@ -33,6 +40,12 @@ public class MessageCommand extends CommandBase {
                 final Player target = Bukkit.getPlayer(arguments[0]);
 
                 if (target != null) {
+                    if (!ToggleManager.getToggle(target, ToggleManager.Toggle.PRIVATE_MESSAGES)) {
+                        sender.sendMessage("§4§lX §cThat player has private messages off.");
+
+                        return;
+                    }
+
                     if (sender instanceof Player && sender == target) {
                         sender.sendMessage("§c§l>> §eForever alone. :(");
                     } else {

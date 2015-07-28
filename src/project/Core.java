@@ -51,6 +51,7 @@ public class Core extends JavaPlugin {
      *  Match kits
      *  Custom WorldEdit
      *  Polls
+     *  Make it so that players cannot equip armor on armor stands
      */
 
     private static Core plugin;
