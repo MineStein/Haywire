@@ -45,7 +45,7 @@ public class RankCommand extends CommandBase {
                     final Player target = Bukkit.getPlayer(arguments[1]);
 
                     if (target != null) {
-                        String ranksListing = "§6§l******** §7" + target.getName() + "'s §eranks §6§l********";
+                        String ranksListing = "§6§l******** §7" + target.getName() + (target.getName().charAt(target.getName().length()) == 's' ? "'" : "'s") + " §eranks §6§l********";
 
                         for (int i = 0; i < RankManager.getRanks(target).size(); i++) {
                             ranksListing += (i != RankManager.getRanks(target).size() ? "\n" : "") + "§7- " + RankManager.getRankPrefix(RankManager.getRanks(target).get(i));

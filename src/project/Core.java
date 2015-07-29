@@ -58,6 +58,7 @@ public class Core extends JavaPlugin {
      *  Finish toggle implementations
      *  Better death tracking with HashMaps
      *  Configurable ranks
+     *  Custom authentication in the case of Mojang's servers being down
      */
 
     private static Core plugin;
