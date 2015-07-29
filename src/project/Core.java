@@ -57,6 +57,7 @@ public class Core extends JavaPlugin {
      *  Custom player API
      *  Finish toggle implementations
      *  Better death tracking with HashMaps
+     *  Configurable ranks
      */
 
     private static Core plugin;

@@ -47,7 +47,7 @@ public class RankManager {
     }
 
     public static void createRankAccount(Player player) {
-        if (hasRank(player)) return;
+        if (hasRank(player) || !hasRank(player, Rank.DEFAULT)) return;
 
         addRank(player, Rank.DEFAULT);
     }
