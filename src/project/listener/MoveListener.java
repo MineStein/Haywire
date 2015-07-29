@@ -3,6 +3,7 @@ package project.listener;
 import net.minecraft.server.v1_8_R3.EnumParticle;
 import net.minecraft.server.v1_8_R3.PacketPlayOutWorldParticles;
 import org.bukkit.Bukkit;
+import org.bukkit.Effect;
 import org.bukkit.GameMode;
 import org.bukkit.Sound;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
@@ -11,8 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
-import project.actionbar.ActionBarUtility;
-import project.storage.TrackerStorage;
+import project.Core;
 
 /**
  * ****************************************************************************************
@@ -31,6 +31,14 @@ public class MoveListener implements Listener {
     @EventHandler
     public void onMove(final PlayerMoveEvent event) {
         final Player player = event.getPlayer();
+
+        if (player.isOp()) {
+            for (int i = 0; i < 10; i++) {
+                for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                    onlinePlayer.playEffect(player.getLocation().add(Core.getRandom().nextInt(2), Core.getRandom().nextInt(2), Core.getRandom().nextInt(2)), Effect.COLOURED_DUST, 1);
+                }
+            }
+        }
 
         if (player.getGameMode().equals(GameMode.SURVIVAL) || player.getGameMode().equals(GameMode.ADVENTURE)) {
             if (Math.floor(player.getLocation().getY()) == 125 || Math.floor(player.getLocation().getY()) == 120 || Math.floor(player.getLocation().getY()) == 115) {

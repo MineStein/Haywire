@@ -1,9 +1,13 @@
 package project.listener;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Effect;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+import project.Core;
 import project.storage.ArenaStorage;
 
 /**
@@ -27,6 +31,12 @@ public class DamageListener implements Listener {
 
             if (ArenaStorage.getSpawnKill().contains(player.getUniqueId().toString())) {
                 event.setCancelled(true);
+            }
+
+            for (int i = 0; i < event.getDamage(); i++) {
+                for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                    onlinePlayer.playEffect(player.getLocation().add(Core.getRandom().nextInt(2), Core.getRandom().nextInt(2), Core.getRandom().nextInt(2)), Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
+                }
             }
         }
     }

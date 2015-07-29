@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="spigot" level="project" />
     <orderEntry type="library" name="gson-2.3.1" level="project" />
+    <orderEntry type="library" name="PingAPI-server" level="project" />
   </component>
 </module>

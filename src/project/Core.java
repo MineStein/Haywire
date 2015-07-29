@@ -35,7 +35,6 @@ public class Core extends JavaPlugin {
      *  Loadouts
      *  Custom WorldGuard
      *  Optimize swear filter speed
-     *  Toggles for blood, chat, private messages, match requests, and default chat color
      *  Grammar corrector
      *  Anti-cheat
      *  Achievements
@@ -55,6 +54,9 @@ public class Core extends JavaPlugin {
      *  Configurable messages
      *  Configurable MOTDs with paginated listings
      *  Pagination API
+     *  Custom player API
+     *  Finish toggle implementations
+     *  Better death tracking with HashMaps
      */
 
     private static Core plugin;
@@ -120,10 +122,12 @@ public class Core extends JavaPlugin {
         getCommand("pixel").setExecutor(new PixelCommand());
         getCommand("toggle").setExecutor(new ToggleCommand());
 
+        Bukkit.getWorld("pvp_arena").setSpawnLocation(258, 141, 362);
+
         Bukkit.getOnlinePlayers().forEach(ScoreboardManager::refreshScoreboard);
 
         Hologram hologram = new Hologram(new Location(Bukkit.getWorld("pvp_arena"), 260.5, 151.5, 362.5), "§eWelcome to §3§lHaywireMC PvP", "§chttp://our-website.net", "§eDeveloped by §7@minestien");
-    }
+}
 
     @Override
     public void onDisable() {
