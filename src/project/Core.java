@@ -2,18 +2,21 @@ package project;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 import project.command.*;
+import project.glow.Glow;
 import project.hologram.Hologram;
 import project.listener.*;
 import project.scoreboard.ScoreboardManager;
 import project.task.AnnouncementTask;
 import project.task.WorldManagementTask;
 
+import java.lang.reflect.Field;
 import java.util.Random;
 
 /**
@@ -82,12 +85,35 @@ public class Core extends JavaPlugin {
         return random;
     }
 
+    public void registerGlow() {
+        try {
+            Field f = Enchantment.class.getDeclaredField("acceptingNew");
+            f.setAccessible(true);
+            f.set(null, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Glow glow = new Glow(70);
+            Enchantment.registerEnchantment(glow);
+        }
+        catch (IllegalArgumentException e){
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
     @Override
     public void onEnable() {
         plugin = this;
         pluginManager = Bukkit.getServer().getPluginManager();
         bukkitScheduler = Bukkit.getServer().getScheduler();
         random = new Random();
+
+        registerGlow();
 
         getConfig().options().copyDefaults(true);
         saveConfig();
