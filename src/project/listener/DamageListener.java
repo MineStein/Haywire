@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import project.Core;
 import project.storage.ArenaStorage;
+import project.toggle.ToggleManager;
 
 /**
  * ****************************************************************************************
@@ -35,7 +36,7 @@ public class DamageListener implements Listener {
 
             for (int i = 0; i < event.getDamage(); i++) {
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-                    onlinePlayer.playEffect(player.getLocation().add(Core.getRandom().nextInt(2), Core.getRandom().nextInt(2), Core.getRandom().nextInt(2)), Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
+                    if (ToggleManager.getToggle(onlinePlayer, ToggleManager.Toggle.BLOOD))                     onlinePlayer.playEffect(player.getLocation().add(Core.getRandom().nextInt(2), Core.getRandom().nextInt(2), Core.getRandom().nextInt(2)), Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
                 }
             }
         }
