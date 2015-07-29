@@ -18,8 +18,8 @@ import org.bukkit.inventory.ItemStack;
  */
 public class Glow extends Enchantment {
 
-    public Glow(int id) {
-        super(id);
+    public Glow() {
+        super(70);
     }
 
     @Override
